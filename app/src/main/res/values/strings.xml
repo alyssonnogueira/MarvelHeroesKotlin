@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Marvel Comics Kotlin</string>
+    <string name="PUBLIC_KEY">00554ed173ff5ed8e7af907d22bfbd12</string>
+    <string name="PRIVATE_KEY">f3902fec4b3a20657f036147416e1d1dee609ba1</string>
+</resources>
