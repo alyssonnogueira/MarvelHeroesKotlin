@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recycler.adapter = HeroAdapter(getHeroes(), this)
+        recycler.adapter = HeroAdapter(heroList, this)
         val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         recycler.layoutManager = layoutManager
 
@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     heroList.addAll(it)
+                    recycler.adapter.notifyItemInserted(heroList.size)
                 }
             //Use result for something
         )

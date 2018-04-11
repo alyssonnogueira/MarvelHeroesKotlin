@@ -71,15 +71,32 @@ class HeroServices (val context: Context) {
 
         val gson = GsonBuilder().create()
 
-        resultsArray?.let {
-            println(it)
-            listHeroes.add(gson.fromJson(it.toString(), Hero::class.java))
+        for(i in 0 until  resultsArray.length()) {
+            listHeroes.add(
+                    Hero(
+                            id = resultsArray.getJSONObject(i).getInt("id"),
+                            name = resultsArray.getJSONObject(i).getString("name"),
+                            description = resultsArray.getJSONObject(i).getString("description"),
+                            comicsAvailable = resultsArray.getJSONObject(i).getJSONObject("comics").getInt("available"),
+                            thumbnail = thumbnailUrl(resultsArray.getJSONObject(i).
+                                    getJSONObject("thumbnail").getString("path"))+"."+
+                                    resultsArray.getJSONObject(i).getJSONObject("thumbnail").getString("extension"),
+                            seriesAvailable = null,
+                            storiesAvailable = null,
+                            eventsAvailable = null,
+                            onlineUrl = null
+                    )
+            )
         }
+//        resultsArray?.let {
+//            //println(it[0]) gson.fromJson(it[0].toString(), Hero::class.java)
+//            listHeroes.add(Hero(it))
+//        }
         return listHeroes
     }
 
 
-        private fun doHashForRequest(): String {
+    private fun doHashForRequest(): String {
         val HEX_CHARS = "0123456789ABCDEF"
 
         val hash = timeStamp+context.getString(R.string.PRIVATE_KEY)+context.getString(R.string.PUBLIC_KEY)
@@ -152,4 +169,9 @@ class HeroServices (val context: Context) {
         return result
     }
 
+    internal fun thumbnailUrl(url: String): String {
+        val timestamp = System.currentTimeMillis()
+        val hash = doHashForRequest()
+        return "$url?ts=$timestamp&apikey=${context.getString(R.string.PUBLIC_KEY)}&hash=$hash"
+    }
 }
