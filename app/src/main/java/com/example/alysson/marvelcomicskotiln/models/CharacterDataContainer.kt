@@ -7,10 +7,12 @@ import io.realm.annotations.RealmClass
 import io.realm.annotations.Required
 
 @RealmClass
-open class Comics : RealmObject(){
-
-    //var id:Int? = null
-    var available:Int? = null
-    var items: RealmList<Comic> = RealmList()
-
+open class CharacterDataContainer : RealmObject(){
+    @PrimaryKey
+    var id:Int = 1
+    var offset:Int = -1
+    var limit:Int = 0
+    var total:Int = 0
+    var count:Int = 0
+    var results:RealmList<Hero> = RealmList()
 }
