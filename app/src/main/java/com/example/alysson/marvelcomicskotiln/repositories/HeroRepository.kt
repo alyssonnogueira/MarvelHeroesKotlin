@@ -23,7 +23,6 @@ import android.widget.ImageView
 import com.example.alysson.marvelcomicskotiln.models.CharacterDataContainer
 import com.squareup.picasso.Picasso
 
-
 class HeroRepository(val context: Context) {
 
     private var heroService: HeroService? = null
