@@ -1,4 +1,4 @@
-package com.example.alysson.marvelcomicskotiln
+package com.example.alysson.marvelcomicskotiln.scopes
 
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy

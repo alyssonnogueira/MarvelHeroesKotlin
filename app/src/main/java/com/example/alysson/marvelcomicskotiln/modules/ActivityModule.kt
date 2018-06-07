@@ -3,6 +3,9 @@ package com.example.alysson.marvelcomicskotiln.modules
 import android.app.Activity
 import android.content.Context
 import com.example.alysson.marvelcomicskotiln.ActivityContext
+import com.example.alysson.marvelcomicskotiln.models.Hero
+import com.example.alysson.marvelcomicskotiln.repositories.HeroRepository
+import com.example.alysson.marvelcomicskotiln.scopes.PerActivity
 import dagger.Module
 import dagger.Provides
 
@@ -11,13 +14,10 @@ import dagger.Provides
 class ActivityModule(private val mActivity: Activity) {
 
     @Provides
-    @ActivityContext
-    internal fun provideContext(): Context {
-        return mActivity
-    }
+    @PerActivity
+    fun provideHero(): Hero = Hero()
 
     @Provides
-    internal fun provideActivity(): Activity {
-        return mActivity
-    }
+    @PerActivity
+    fun provideHeroRepository(context: Context): HeroRepository = HeroRepository(context)
 }
