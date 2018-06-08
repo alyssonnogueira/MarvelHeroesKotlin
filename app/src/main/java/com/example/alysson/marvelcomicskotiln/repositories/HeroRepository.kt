@@ -22,6 +22,7 @@ import android.graphics.Bitmap
 import android.widget.ImageView
 import com.example.alysson.marvelcomicskotiln.models.CharacterDataContainer
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
 class HeroRepository(val context: Context) {
 

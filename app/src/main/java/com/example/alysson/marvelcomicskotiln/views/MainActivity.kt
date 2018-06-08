@@ -1,5 +1,6 @@
 package com.example.alysson.marvelcomicskotiln.views
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,7 +12,8 @@ import com.example.alysson.marvelcomicskotiln.R
 import com.example.alysson.marvelcomicskotiln.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
-
+import com.example.alysson.marvelcomicskotiln.App
+import com.example.alysson.marvelcomicskotiln.di.modules.MainModule
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,10 +21,15 @@ class MainActivity : AppCompatActivity() {
     private var mainViewModel: MainViewModel? = null
     private val visibleThreshold: Int = 10
     private val spanCount: Int = 1
+    val Activity.app: App
+        get() = application as App
+    val component by lazy { app.component.plus(MainModule(this)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        component.inject(this)
 
         mainViewModel = MainViewModel(this)
 
