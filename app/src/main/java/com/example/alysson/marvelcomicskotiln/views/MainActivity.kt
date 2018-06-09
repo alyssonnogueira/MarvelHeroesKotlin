@@ -2,18 +2,17 @@ package com.example.alysson.marvelcomicskotiln.views
 
 import android.app.Activity
 import android.arch.lifecycle.Observer
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
-import android.widget.Toast
+import com.example.alysson.marvelcomicskotiln.App
 import com.example.alysson.marvelcomicskotiln.R
+import com.example.alysson.marvelcomicskotiln.di.modules.MainModule
 import com.example.alysson.marvelcomicskotiln.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import android.content.Intent
-import com.example.alysson.marvelcomicskotiln.App
-import com.example.alysson.marvelcomicskotiln.di.modules.MainModule
 
 
 class MainActivity : AppCompatActivity() {
