@@ -9,7 +9,6 @@ import io.realm.annotations.Required
 @RealmClass
 open class Comics : RealmObject(){
 
-    //var id:Int? = null
     var available:Int? = null
     var items: RealmList<Comic> = RealmList()
 

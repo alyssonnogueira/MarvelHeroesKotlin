@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         recycler.adapter = HeroAdapter(mainViewModel!!.characterDataContainer.results, this, mainViewModel!!.heroRepository!!, object : OnItemClickListener{
             override fun onItemClick(view: View, position: Int) {
-                Toast.makeText(baseContext, "Position$position", Toast.LENGTH_SHORT).show()
                 val intent = Intent(baseContext, HeroPageActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 intent.putExtra("POSITION", mainViewModel!!.characterDataContainer.results[position]!!.id)

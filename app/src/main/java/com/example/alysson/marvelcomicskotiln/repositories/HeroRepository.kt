@@ -56,7 +56,6 @@ class HeroRepository(val context: Context) {
 
     }
 
-
     fun findFirstCharacterDataContainer(): CharacterDataContainer? {
         this.openDB()
 
@@ -75,23 +74,6 @@ class HeroRepository(val context: Context) {
     fun setHeroPerfil(hero: Hero, perfil: ImageView): Unit {
         return Picasso.get().load(thumbnailUrl(hero.thumbnail!!.getUrl())).into(perfil)
     }
-
-//    fun getUser(): User? {
-//        this.openDB()
-//
-//        return realm.where(User::class.java).findFirst()
-//    }
-//
-//    fun signIn(phone: String, password: String): Observable<JsonObject>? {
-//        return this.heroService?.signIn(phone, password)
-//    }
-//
-//    fun completeRegister(user: User): Observable<JsonObject>? {
-//        val userString = JSONObject(Gson().toJson(realm.copyFromRealm(user)))
-//        val json = JSONObject().put("user", userString)
-//        val request = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), json.toString())
-//        return this.heroService?.completeRegister(request)
- //  }
 
     private fun md5(): String {
         val hash = "$timeStamp${context.getString(R.string.PRIVATE_KEY)}$apiKey"

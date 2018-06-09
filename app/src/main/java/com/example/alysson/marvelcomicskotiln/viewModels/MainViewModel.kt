@@ -5,13 +5,10 @@ import android.arch.lifecycle.ViewModel
 import android.content.Context
 import android.util.Log
 import com.example.alysson.marvelcomicskotiln.models.CharacterDataContainer
-import com.example.alysson.marvelcomicskotiln.models.Hero
 import com.example.alysson.marvelcomicskotiln.repositories.HeroRepository
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import io.realm.Realm
-import io.realm.RealmList
 
 class MainViewModel(context: Context) : ViewModel() {
 

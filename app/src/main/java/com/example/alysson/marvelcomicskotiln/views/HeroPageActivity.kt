@@ -21,6 +21,8 @@ class HeroPageActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val position = intent.getIntExtra("POSITION", 0)
+        this.heroPageViewModel = HeroPageViewModel(this, position)
+
 
         initScreen()
     }
@@ -29,8 +31,8 @@ class HeroPageActivity : AppCompatActivity() {
 
         heroPageViewModel.setImageBackdrop(backdrop)
         toolbar.title = heroPageViewModel.getHeroName()
-        description.text = heroPageViewModel.getHeroDescription()
-        comicsAvailable.text = heroPageViewModel.getHeroComicsParticipation()
+        description.text = "Descrição do Personagem: " + heroPageViewModel.getHeroDescription()
+        comicsAvailable.text = "Participações em Comics: " + heroPageViewModel.getHeroComicsParticipation()
 
         fab.setOnClickListener {
             println(heroPageViewModel.getHeroUrlDetails())

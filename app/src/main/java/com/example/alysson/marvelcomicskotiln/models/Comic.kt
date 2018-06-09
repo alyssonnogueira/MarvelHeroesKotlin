@@ -10,7 +10,6 @@ import io.realm.annotations.Required
 @RealmClass
 open class Comic : RealmObject(){
 
-    //var id:Int = 0
     var resourceURI: String? = null
     var name:String? = null
 }

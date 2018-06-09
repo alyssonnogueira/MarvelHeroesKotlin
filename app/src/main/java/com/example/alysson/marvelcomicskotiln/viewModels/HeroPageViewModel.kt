@@ -6,12 +6,10 @@ import android.widget.ImageView
 import com.example.alysson.marvelcomicskotiln.models.Hero
 import com.example.alysson.marvelcomicskotiln.repositories.HeroRepository
 
-class HeroPageViewModel constructor(context: Context) : ViewModel() {
+class HeroPageViewModel constructor(context: Context, position: Int) : ViewModel() {
 
     private val heroRepository: HeroRepository = HeroRepository(context)
     var hero: Hero
-
-    var position: Int = 1
 
     init {
 
