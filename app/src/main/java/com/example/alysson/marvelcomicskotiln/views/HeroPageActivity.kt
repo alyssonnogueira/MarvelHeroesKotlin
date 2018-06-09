@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.example.alysson.marvelcomicskotiln.R
 import com.example.alysson.marvelcomicskotiln.viewModels.HeroPageViewModel
 import kotlinx.android.synthetic.main.activity_hero_page.*
@@ -35,11 +37,15 @@ class HeroPageActivity : AppCompatActivity() {
         comicsAvailable.text = "Participações em Comics: " + heroPageViewModel.getHeroComicsParticipation()
 
         fab.setOnClickListener {
-            println(heroPageViewModel.getHeroUrlDetails())
+            println("URL HERO: " + heroPageViewModel.getHeroUrlDetails())
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(heroPageViewModel.getHeroUrlDetails())
             startActivity(intent)
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
+    }
 }

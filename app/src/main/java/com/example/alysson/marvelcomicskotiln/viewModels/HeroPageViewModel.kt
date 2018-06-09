@@ -29,7 +29,7 @@ class HeroPageViewModel constructor(context: Context, position: Int) : ViewModel
 
     fun getHeroDescription(): String = if (hero.description != null) hero.description!! else ""
 
-    fun getHeroUrlDetails(): String = if (hero.urlDetails != null) hero.urlDetails!! else ""
+    fun getHeroUrlDetails(): String = if (hero.urls.size != 0) hero.urls[0]?.url!! else ""
 
     fun getHeroComicsParticipation(): String {
         var textWithParticipations = ""
